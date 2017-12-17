@@ -1,6 +1,6 @@
         <footer class="mastfoot">
             <div class="inner">
-              <p>Un projet developpé par <strong>un groupe de ninjas anonymes</strong>.</p>
+              <p>Un projet developpé par <strong>Mohamed-Ali Chakeur</strong>.</p>
             </div>
         </footer>
     </body>
