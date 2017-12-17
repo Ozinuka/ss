@@ -1,2 +1,2 @@
 # Shinobi-survivor
-Jeu vidéo developer à l'ETNA dans le cadre du projet Webinator
+Jeu vidéo développer par Mohamed-Ali CHAKEUR dans le cadre du projet Webinator (Ecole ETNA)
