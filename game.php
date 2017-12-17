@@ -3,18 +3,6 @@
 <?php 
     include ('head.php');
     include ('menu.php');
-
-/*
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Shinobi Survivor</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
-    
-</head>
-*/
 ?>
 
 <body>
@@ -22,11 +10,17 @@
         if ($_SESSION['connect'] = true )
             {
     ?>
-               <canvas id="canvas">
-                <p>Désolé, votre navigateur ne supporte pas Canvas. Mettez-vous à jour</p>
-                </canvas>
-
-                <script src="js/game.js"></script>  
+               <div id="divCanvas">
+						<canvas width="800" height="600" id="shinobiSurvivorCanvas"></canvas>
+				</div>
+					 
+				<!-- Import Librairys -->
+				<script src="libs/jquery-3.2.1.min.js"></script>
+				<script src="libs/easeljs.min.js"></script>
+				<!-- Bibliothèque utilitaire -->
+				<script src="js/easelJsUtils.js"></script>
+				<!-- Script of the game -->
+				<script src="js/shinobiGame.js"></script>
     <?php
             }
         else 

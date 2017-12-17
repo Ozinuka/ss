@@ -1,0 +1,24 @@
+{
+
+"images": [
+    "spear.png"
+],
+
+"frames": [
+    [1, 1, 180, 15, 0, 0, 0],
+    [1, 18, 180, 15, 0, 0, 0],
+    [183, 1, 15, 180, 0, 0, 0]
+],
+
+"animations": {
+    "Left": { "frames": [0] },
+    "Right": { "frames": [1] },
+    "Down": { "frames": [2] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:7b4c24a02473d69ce83c4cb7769b2906:49308354759545ebdcc49ce7d21006a2:5d4d03b4a2a43e606378263b1b299762$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}
