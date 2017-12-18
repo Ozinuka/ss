@@ -5,6 +5,8 @@
     var keys = [];
     var tabSpears = [];
     var orientations = ['left','right','down'];
+    var jumping = false;
+    var gameFloor = 550;
 	
     // Initialisation
 	$(document).ready(function() {
@@ -62,8 +64,7 @@
                 {
                     x = 800;
                     y = getRndInteger(440, 560);
-                    tabSpears[i] = easelJsUtils.createSpear(x, y,orientation);
-                    
+                    tabSpears[i] = easelJsUtils.createSpear(x, y,orientation);  
                 }
             else if (orientation == 'right')
                 {
@@ -77,8 +78,6 @@
                     y = 0;
                     tabSpears[i] = easelJsUtils.createSpear(x, y, orientation);
                 }
-
-                
         }
       };
 /*****************************************************************************/
@@ -88,21 +87,21 @@
         createjs.Ticker.addEventListener("tick", function(){   
         handleInteractions(); // gérer les interactions
         for (j=0; j < tabSpears.length; j++)    
-        {
-            if (tabSpears[j].name == 'left')
-                {
-                    tabSpears[j].x -= 10;
-                }
-            else if (tabSpears[j].name == 'right')
-                {
-                    tabSpears[j].x += 10;
-                }
-            else if (tabSpears[j].name == 'down')
-                {
-                    tabSpears[j].y += 10;
-                }
-        }
-            this.stage.update(); // mettre à jour l'affichage
+            {
+                if (tabSpears[j].name == 'left')
+                    {
+                        tabSpears[j].x -= 10;
+                    }
+                else if (tabSpears[j].name == 'right')
+                    {
+                        tabSpears[j].x += 10;
+                    }
+                else if (tabSpears[j].name == 'down')
+                    {
+                        tabSpears[j].y += 10;
+                    }
+            }
+        this.stage.update(); // mettre à jour l'affichage
         });
     };
  /*****************************************************************************/   
@@ -120,36 +119,45 @@
     this.handleInteractions = function() {
         // touches "gauche"
         if (keys[37]) {
+            jumping = false;
             player.scaleX = -1; // retourner le Player vers la gauche
             if ('run' != playerState) {
                 playerState = 'run';
                 player.gotoAndPlay('run');
             }
-            if (player.x > 0) {
+            if (player.x > 0) {        
+                player.y = gameFloor;
                 player.x -= 10;
             }
         } else if (keys[39]) {
             // touche "droite"
+            jumping = false;
             player.scaleX = 1;  // retourner le Player vers la droite
             if ('run' != playerState) {
                 playerState = 'run';
                 player.gotoAndPlay('run');
             }
             if (player.x < 800) {
+                player.y = gameFloor;
                 player.x += 10;
             }
         } else if (keys[40]) {
             // touche "bas"
+            jumping = false;
             if (player.y <= canvas.height - 10){
                 playerState = 'slide';
+                player.y = gameFloor;
                 player.gotoAndPlay('slide');
             }   
         } else if (keys[38]) {
             // touche "haut"
+            jumping = true;
             playerState = 'jump';
+            player.y = 400;
             player.gotoAndPlay('jump');
         } else {
             playerState = 'ilde';
+            player.y = gameFloor;
             player.gotoAndPlay('ilde');
         }
     };
